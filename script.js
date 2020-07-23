@@ -1,4 +1,16 @@
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","");
+"use strict";
+
+let numberOfFilms;
+
+function start() {
+    const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","");
+
+    while (numberOfFilms === " " || numberOfFilms === null || isNaN(numberOfFilms)) {
+        const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","");
+    }
+}
+
+start();
 
 const personaMovieDB = {
     count: numberOfFilms,
@@ -8,12 +20,52 @@ const personaMovieDB = {
     privat: false
 };
 
-const a = prompt("Один из последних просмотренных фильмов?",""),
-      b = prompt("На сколько оцените его",""),
-      c = prompt("Один из последних просмотренных фильмов?",""),
-      d = prompt("На сколько оцените его","");
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt("Один из последних просмотренных фильмов?",""),
+              b = prompt("На сколько оцените его","");
+    
+        if (a != null && b != null  && a != "" && b != "" && a.length < 50) {
+            personaMovieDB.movies[a] = b;
+            console.log("done");
+        } else {
+            console.log("error");
+            i--;
+        }
+    
+    }
+}
 
-      personaMovieDB.movies[a] = b;
-      personaMovieDB.movies[c] = d;
+rememberMyFilms();
 
-      console.log(personaMovieDB);
+function detectPersonaLevel() {
+    if (personaMovieDB.count < 10) {
+        console.log("Просмотрено мало фильмов");
+    } else if (personaMovieDB.count >= 10 && personaMovieDB.count < 30) {
+        console.log("Вы классический зритель");
+    } else if (personaMovieDB.count >= 30) {
+        console.log("Вы киноман");
+    } else {
+        console.log("Произошла ошибка");
+    }
+}
+
+detectPersonaLevel();
+
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(personaMovieDB);
+    } 
+    
+}
+
+showMyDB(personaMovieDB.privat);
+
+function writeYourGenres() {
+    for ( let i = 1; i < 4; i++) {
+        personaMovieDB.genres[i - 1] = prompt(`Ваш любий жанр под номером ${i}?`); 
+    }
+}
+writeYourGenres();
+
+console.log(personaMovieDB.genres);
