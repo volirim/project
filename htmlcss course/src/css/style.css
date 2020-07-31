@@ -1,0 +1,17 @@
+/* body {
+    background-color: khaki;
+} */
+
+h2 {
+    color: red;
+    font-size: 30px;
+    text-align: center;
+}
+
+.chapter {
+    color: blue;
+}
+
+#begin {
+    color: orange;
+}
