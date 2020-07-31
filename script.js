@@ -10,7 +10,11 @@ function start() {
     }
 }
 
+<<<<<<< HEAD
 // start();
+=======
+start();
+>>>>>>> newbranch
 
 const personaMovieDB = {
     count: numberOfFilms,
@@ -36,7 +40,11 @@ function rememberMyFilms() {
     }
 }
 
+<<<<<<< HEAD
 // rememberMyFilms();
+=======
+rememberMyFilms();
+>>>>>>> newbranch
 
 function detectPersonaLevel() {
     if (personaMovieDB.count < 10) {
@@ -50,7 +58,11 @@ function detectPersonaLevel() {
     }
 }
 
+<<<<<<< HEAD
 // detectPersonaLevel();
+=======
+detectPersonaLevel();
+>>>>>>> newbranch
 
 function showMyDB(hidden) {
     if (!hidden) {
